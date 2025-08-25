@@ -1,34 +1,115 @@
+/* ===== Windows 95 look ===== */
+:root{
+  --win95-face: #c0c0c0;
+  --win95-light: #ffffff;
+  --win95-shadow: #808080;
+  --win95-dark: #404040;
+  --win95-black: #000000;
+  --win95-blue: #000080; /* titelbalk */
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f9f9f9;
-    color: #333;
+  background: #00808010; /* subtiel, mag #008080 voor full retro */
+  font-family: Tahoma, Verdana, "Segoe UI", Arial, sans-serif;
 }
 
-header {
-    text-align: center;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+a { text-decoration: none; color: inherit; }
 
+/* Grid blijft zoals je had */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-.card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease;
+/* Kaart = “venster” */
+.win95-window{
+  background: var(--win95-face);
+  display: block;
+  border-left: 2px solid var(--win95-light);
+  border-top: 2px solid var(--win95-light);
+  border-right: 2px solid var(--win95-shadow);
+  border-bottom: 2px solid var(--win95-shadow);
+  box-shadow:
+    inset -1px -1px 0 var(--win95-dark),
+    inset 1px 1px 0 var(--win95-light);
 }
 
-.card:hover {
-    transform: translateY(-5px);
+/* Titelbalk + knoppen */
+.win95-titlebar{
+  background: var(--win95-blue);
+  color: #fff;
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1;
+  user-select: none;
+}
+
+.win95-title{
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #000; /* subtiel raster-gevoel */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.win95-controls{
+  display: inline-flex;
+  gap: 3px;
+}
+
+.win95-btn{
+  width: 18px; height: 16px;
+  display: grid; place-items: center;
+  background: var(--win95-face);
+  border-left: 2px solid var(--win95-light);
+  border-top: 2px solid var(--win95-light);
+  border-right: 2px solid var(--win95-shadow);
+  border-bottom: 2px solid var(--win95-shadow);
+  font-size: 12px;
+  color: var(--win95-black);
+  line-height: 1;
+}
+
+/* Inhoud */
+.win95-body{
+  padding: 10px 12px 12px;
+  color: #111;
+}
+
+/* Links/hover: “pressed” & focus-outline */
+.win95-window:focus-visible{
+  outline: 1px dotted var(--win95-black);
+  outline-offset: 2px;
+}
+
+.win95-window:hover{
+  filter: brightness(1.02);
+}
+
+.win95-window:active{
+  /* wissel randen om voor ingedrukt effect */
+  border-left: 2px solid var(--win95-shadow);
+  border-top: 2px solid var(--win95-shadow);
+  border-right: 2px solid var(--win95-light);
+  border-bottom: 2px solid var(--win95-light);
+  box-shadow:
+    inset -1px -1px 0 var(--win95-light),
+    inset 1px 1px 0 var(--win95-dark);
+}
+
+/* Optioneel: kleine tag/metadata chip in Win95-stijl */
+.win95-chip{
+  display: inline-block;
+  padding: 2px 6px;
+  margin-right: 6px;
+  background: var(--win95-face);
+  border-left: 2px solid var(--win95-light);
+  border-top: 2px solid var(--win95-light);
+  border-right: 2px solid var(--win95-shadow);
+  border-bottom: 2px solid var(--win95-shadow);
+  font-size: 12px;
 }
