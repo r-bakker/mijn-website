@@ -1,7 +1,16 @@
-<main class="grid">
-    <a href="posts/post1.html" class="card win95-window">
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Win95 Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header in Win95-stijl -->
+    <header class="win95-window" style="margin: 20px auto; max-width: 900px;">
         <div class="win95-titlebar">
-            <span class="win95-title">Eerste Blogpost</span>
+            <span class="win95-title">Mijn Persoonlijke Blog</span>
             <span class="win95-controls">
                 <span class="win95-btn">_</span>
                 <span class="win95-btn">□</span>
@@ -9,21 +18,26 @@
             </span>
         </div>
         <div class="win95-body">
-            <p>Korte intro over deze post...</p>
+            <p>Welkom op mijn persoonlijke blog. Klik op een post om te lezen!</p>
         </div>
-    </a>
+    </header>
 
-    <a href="posts/post2.html" class="card win95-window">
-        <div class="win95-titlebar">
-            <span class="win95-title">Tweede Blogpost</span>
-            <span class="win95-controls">
-                <span class="win95-btn">_</span>
-                <span class="win95-btn">□</span>
-                <span class="win95-btn">×</span>
-            </span>
-        </div>
-        <div class="win95-body">
-            <p>Korte intro van post 2...</p>
-        </div>
-    </a>
-</main>
+    <!-- Grid met posts -->
+    <main class="grid" style="max-width: 900px; margin: 0 auto;">
+        <!-- Eén voorbeeldpost -->
+        <a href="posts/post1.html" class="card win95-window">
+            <div class="win95-titlebar">
+                <span class="win95-title">Eerste Blogpost</span>
+                <span class="win95-controls">
+                    <span class="win95-btn">_</span>
+                    <span class="win95-btn">□</span>
+                    <span class="win95-btn">×</span>
+                </span>
+            </div>
+            <div class="win95-body">
+                <p>Korte intro over deze post... bijvoorbeeld een paar regels tekst die de inhoud samenvat.</p>
+            </div>
+        </a>
+    </main>
+</body>
+</html>
