@@ -1,37 +1,39 @@
+/* ===== Win95 navigatiebalk ===== */
 .win95-nav {
-  background: var(--win95-face);
-  max-width: 400px;
-  margin: 10px auto; /* gecentreerd */
-  display: flex;
-  justify-content: space-between; /* links – midden – rechts */
-  align-items: center;
-  padding: 4px 8px;
+    background: var(--win95-face); /* typische grijze Win95 achtergrond */
+    max-width: 400px;
+    margin: 10px auto; /* gecentreerd */
+    display: flex;
+    justify-content: space-between; /* links – midden – rechts */
+    align-items: center;
+    padding: 4px 8px;
 
-  /* typische Win95-window rand */
-  border-left: 2px solid var(--win95-light);
-  border-top: 2px solid var(--win95-light);
-  border-right: 2px solid var(--win95-shadow);
-  border-bottom: 2px solid var(--win95-shadow);
-  box-shadow:
-    inset -1px -1px 0 var(--win95-dark),
-    inset 1px 1px 0 var(--win95-light);
+    /* typische Win95-window rand */
+    border-left: 2px solid var(--win95-light);
+    border-top: 2px solid var(--win95-light);
+    border-right: 2px solid var(--win95-shadow);
+    border-bottom: 2px solid var(--win95-shadow);
+    box-shadow:
+        inset -1px -1px 0 var(--win95-dark),
+        inset 1px 1px 0 var(--win95-light);
 }
 
+/* Stijl voor links in de navigatiebalk */
 .win95-nav-link {
-  color: var(--win95-black);
-  text-decoration: none;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+    color: var(--win95-black);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px; /* ruimte tussen icoon en tekst */
 }
 
 .win95-nav-link:hover {
-  background: var(--win95-face);
-  filter: brightness(0.95); /* subtiel hover-effect */
+    filter: brightness(0.95); /* subtiel hover-effect */
 }
 
+/* Icon grootte */
 .win95-nav .icon {
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 }
