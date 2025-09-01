@@ -21,11 +21,39 @@
             text-align: center;
         }
 
+        /* Blogarchief grid */
+        .blog-archive {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 600px;
+            padding: 0 10px;
+        }
+
+        .blog-archive a {
+            text-decoration: none;
+            color: darkblue;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: 2px solid darkblue;
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .blog-archive a:hover {
+            background-color: darkblue;
+            color: white;
+        }
+
         /* Fix voor mobiel: blogposts gecentreerd */
         @media (max-width: 500px) {
-            .grid {
-                grid-template-columns: 1fr !important;
-                justify-items: center;
+            .blog-archive a {
+                width: 90%;
             }
         }
     </style>
@@ -48,8 +76,10 @@
         </a>
     </nav>
 
-    <!-- Site content -->
-    <p>Hier wordt nog aan gewerkt!</p>
+    <!-- Blogarchief content -->
+    <div class="blog-archive">
+        <a href="../posts/post1.html">BLOGPOST#1 - Een HTML-website!</a>
+    </div>
 
 </body>
 </html>
