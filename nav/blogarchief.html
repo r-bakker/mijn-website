@@ -19,19 +19,21 @@
             font-size: 32px;
             color: darkblue;
             text-align: center;
+            margin: 20px auto;
+            width: min(400px, 90vw);
         }
 
-        /* Blogarchief grid */
+        /* Blogarchief container */
         .blog-archive {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 15px;
             margin: 30px auto;
-            max-width: 600px;
             padding: 0 10px;
         }
 
+        /* Blogpost links */
         .blog-archive a {
             text-decoration: none;
             color: darkblue;
@@ -41,6 +43,7 @@
             border: 2px solid darkblue;
             border-radius: 8px;
             width: 100%;
+            max-width: 400px; /* max-breedte gelijk aan navigatiebalk */
             text-align: center;
             transition: all 0.2s ease-in-out;
         }
@@ -50,7 +53,7 @@
             color: white;
         }
 
-        /* Fix voor mobiel: blogposts gecentreerd */
+        /* Mobiele fix */
         @media (max-width: 500px) {
             .blog-archive a {
                 width: 90%;
@@ -61,7 +64,7 @@
 <body>
 
     <!-- 8-bit titel bovenaan -->
-    <h1 class="site-title" style="width: min(400px, 90vw); margin: 20px auto;">ROB BAKKER</h1>
+    <h1 class="site-title">ROB BAKKER</h1>
 
     <!-- Grijze Win95 navigatiebalk -->
     <nav class="win95-nav">
