@@ -4,87 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rob's creatieve outlet</title>
+    
+    <!-- Algemene stijlen -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Win95 navigatiebalk -->
     <link rel="stylesheet" href="css/navigatie.css">
-    <title>Rob's creatieve outlet</title>
+
     <!-- 8-bit font importeren -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
     <style>
-    .site-title {
-        font-family: 'Press Start 2P', cursive;
-        font-size: 32px;
-        color: darkblue;
-        text-align: center;
-    }
-</style>
+        .site-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 32px;
+            color: darkblue;
+            text-align: center;
+        }
+
+        /* Fix voor mobiel: blogposts gecentreerd */
+        @media (max-width: 500px) {
+            .grid {
+                grid-template-columns: 1fr !important;
+                justify-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <!-- 8-bit titel bovenaan -->
     <h1 class="site-title" style="width: min(400px, 90vw); margin: 20px auto;">ROB BAKKER</h1>
 
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <title>Mijn Website</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+    <!-- Grijze Win95 navigatiebalk -->
+    <nav class="win95-nav">
+        <a href="index.html" class="win95-nav-link">
+            <img src="folder-icon.png" alt="" class="icon"> Home
+        </a>
+        <a href="about.html" class="win95-nav-link">
+            <img src="folder-icon.png" alt="" class="icon"> Over
+        </a>
+        <a href="contact.html" class="win95-nav-link">
+            <img src="folder-icon.png" alt="" class="icon"> Contact
+        </a>
+    </nav>
 
-    
-  <!-- Grijze Win95 navigatiebalk -->
-  <nav class="win95-nav">
-    <a href="index.html" class="win95-nav-link">
-      <img src="folder-icon.png" alt="" class="icon"> Home
-    </a>
-    <a href="about.html" class="win95-nav-link">
-      <img src="folder-icon.png" alt="" class="icon"> Over
-    </a>
-    <a href="contact.html" class="win95-nav-link">
-      <img src="folder-icon.png" alt="" class="icon"> Contact
-    </a>
-  </nav>
-    
     <!-- Header in Win95-stijl -->
-<header class="win95-window" style="margin: 20px auto; display: table;">
-  <div class="win95-titlebar">
-      <span class="win95-title">▶ Nummmertje</span>
-      <span class="win95-controls">
-          <span class="win95-btn">_</span>
-          <span class="win95-btn">□</span>
-          <span class="win95-btn">×</span>
-      </span>
-  </div>
-  <div style="position: relative; width: min(400px, 90vw); aspect-ratio: 1/1; margin: 0 auto;">
-  <iframe 
-      src="https://www.youtube.com/embed/iTpfCdbamnk"
-      title="YouTube short"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-  </iframe>
-</div>
-</header>
-
-    <!-- Grid met posts -->
-    <main class="grid" style="max-width: 900px; margin: 0 auto; display: grid; justify-content: center;">
-    <!-- Eén voorbeeldpost -->
-    <a href="posts/post1.html" 
-       class="card win95-window" 
-       style="display: block; width: min(400px, 90vw); margin: 20px auto;">
+    <header class="win95-window" style="margin: 20px auto; display: table;">
         <div class="win95-titlebar">
-            <span class="win95-title">Mijn eerste Blogpost</span>
+            <span class="win95-title">▶ Nummmertje</span>
             <span class="win95-controls">
                 <span class="win95-btn">_</span>
                 <span class="win95-btn">□</span>
                 <span class="win95-btn">×</span>
             </span>
         </div>
-        <div class="win95-body">
-            <p>Welkom! Dit is mijn eerste blogpost waarin ik het bloggen via HTML test. Klik om meer te zien!</p>
+        <div style="position: relative; width: min(400px, 90vw); aspect-ratio: 1/1; margin: 0 auto;">
+            <iframe 
+                src="https://www.youtube.com/embed/iTpfCdbamnk"
+                title="YouTube short"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            </iframe>
         </div>
-    </a>
-</main>
+    </header>
+
+    <!-- Grid met posts -->
+    <main class="grid" style="max-width: 900px; margin: 0 auto; display: grid; justify-content: center; gap: 20px; padding: 20px;">
+        <!-- Eén voorbeeldpost -->
+        <a href="posts/post1.html" class="card win95-window" style="display: block; width: min(400px, 90vw); margin: 20px auto;">
+            <div class="win95-titlebar">
+                <span class="win95-title">Mijn eerste Blogpost</span>
+                <span class="win95-controls">
+                    <span class="win95-btn">_</span>
+                    <span class="win95-btn">□</span>
+                    <span class="win95-btn">×</span>
+                </span>
+            </div>
+            <div class="win95-body">
+                <p>Welkom! Dit is mijn eerste blogpost waarin ik het bloggen via HTML test. Klik om meer te zien!</p>
+            </div>
+        </a>
+    </main>
 
 </body>
 </html>
