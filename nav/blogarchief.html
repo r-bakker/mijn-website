@@ -3,11 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog-archief</title>
+    <title>Rob's Blog-archief</title>
+    
+    <!-- Algemene stijlen -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Win95 navigatiebalk -->
+    <link rel="stylesheet" href="css/navigatie.css">
+
+    <!-- 8-bit font importeren -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        .site-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 32px;
+            color: darkblue;
+            text-align: center;
+        }
+
+        /* Fix voor mobiel: blogposts gecentreerd */
+        @media (max-width: 500px) {
+            .grid {
+                grid-template-columns: 1fr !important;
+                justify-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <p>Hier wordt nog aan gesleuteld</p>
+    <!-- 8-bit titel bovenaan -->
+    <h1 class="site-title" style="width: min(400px, 90vw); margin: 20px auto;">ROB BAKKER</h1>
+
+    <!-- Grijze Win95 navigatiebalk -->
+    <nav class="win95-nav">
+        <a href="index.html" class="win95-nav-link">
+            <img src="icons/archief.png" alt="Folder icon" class="icon"> Home
+        </a>
+        <a href="nav/hobbies.html" class="win95-nav-link">
+            <img src="icons/archief.png" alt="Folder icon" class="icon"> Hobbies
+        </a>
+        <a href="nav/blogarchief.html" class="win95-nav-link">
+            <img src="icons/archief.png" alt="Folder icon" class="icon"> Blog-archief
+        </a>
+    </nav>
+
+<!--Site content -->
+<p>Hier wordt nog aan gewerkt!</p>
 
 </body>
 </html>
