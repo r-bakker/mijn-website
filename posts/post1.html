@@ -4,11 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLOGPOST#1</title>
+    
+    <!-- Algemene stijlen -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Win95 navigatiebalk -->
+    <link rel="stylesheet" href="../css/navigatie.css">
+
+    <!-- 8-bit font importeren -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        .site-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 32px;
+            color: darkblue;
+            text-align: center;
+            margin: 20px auto;
+            width: min(400px, 90vw);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- De content in een Win95-venster -->
+    <!-- 8-bit titel bovenaan -->
+    <h1 class="site-title">ROB BAKKER</h1>
+
+    <!-- Grijze Win95 navigatiebalk -->
+    <nav class="win95-nav">
+        <a href="../index.html" class="win95-nav-link">
+            <img src="../icons/archief.png" alt="Folder icon" class="icon"> Home
+        </a>
+        <a href="hobbies.html" class="win95-nav-link">
+            <img src="../icons/archief.png" alt="Folder icon" class="icon"> Hobbies
+        </a>
+        <a href="blogarchief.html" class="win95-nav-link">
+            <img src="../icons/archief.png" alt="Folder icon" class="icon"> Blog-archief
+        </a>
+    </nav>
+
+    <!-- De content van de blogpost in een Win95-venster -->
     <main class="win95-window" style="max-width: 900px; margin: 20px auto;">
         <div class="win95-titlebar">
             <span class="win95-title">BLOGPOST#1</span>
@@ -19,7 +53,7 @@
             </span>
         </div>
         <div class="win95-body">
-            <a href="../index.html" class="win95-chip">← Terug naar overzicht</a>
+            <a href="../nav/blogarchief.html" class="win95-chip">← Terug naar overzicht</a>
             <p><strong>Datum:</strong> 25 augustus 2025</p>
             <p>
                 Welkom op mijn persoonlijke Blog! Laat ik me voorstellen, ik ben Rob en heb al een tijdje een Blog over gravelrijden via Wordpress.
@@ -30,5 +64,6 @@
             <img src="../posts/post1/img1.JPG" alt="Voorbeeld" style="max-width:100%; border: 2px solid #808080;">
         </div>
     </main>
+
 </body>
 </html>
