@@ -48,87 +48,8 @@
         </a>
     </nav>
 
-<!DOCTYPE html>
-<html lang="nl">
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <title>Trainingsschema</title>
-  <style>
-    body {
-      background: #008080;
-      font-family: "MS Sans Serif", Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      padding-top: 40px;
-    }
-
-    .win95-window {
-      background: #c0c0c0;
-      border: 2px solid #fff;
-      border-right-color: #808080;
-      border-bottom-color: #808080;
-      width: min(360px, 90vw);
-      box-shadow: 2px 2px 0 #000;
-    }
-
-    .win95-titlebar {
-      background: #000080;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4px 8px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .win95-btn {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      text-align: center;
-      background: #c0c0c0;
-      color: black;
-      border: 1px solid #808080;
-      margin-left: 4px;
-      line-height: 14px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-
-    .win95-body {
-      padding: 10px 14px;
-      background: #e0e0e0;
-      border-top: 2px solid #808080;
-    }
-
-    .training {
-      padding: 6px;
-      border: 1px solid #808080;
-      background: #fff;
-      margin-bottom: 6px;
-      font-size: 14px;
-    }
-
-    .training p {
-      margin: 2px 0;
-    }
-
-    .training.grijs {
-      color: #666;
-      background: #f4f4f4;
-    }
-
-    .training.zwart {
-      color: #000;
-      font-weight: bold;
-      background: #fff;
-    }
-  </style>
-</head>
-<body>
+<!-- Trainingsmodule (Windows 95 stijl) -->
+<div id="trainingsmodule">
   <div class="win95-window">
     <div class="win95-titlebar">
       📅 Trainingsschema
@@ -142,57 +63,129 @@
       <p>Laden...</p>
     </div>
   </div>
+</div>
+
+<style>
+  /* --- Alleen stijlen binnen de trainingsmodule --- */
+  #trainingsmodule {
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+    font-family: "MS Sans Serif", Arial, sans-serif;
+  }
+
+  #trainingsmodule .win95-window {
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    width: min(360px, 90vw);
+    box-shadow: 2px 2px 0 #000;
+  }
+
+  #trainingsmodule .win95-titlebar {
+    background: #000080;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  #trainingsmodule .win95-btn {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    background: #c0c0c0;
+    color: black;
+    border: 1px solid #808080;
+    margin-left: 4px;
+    line-height: 14px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  #trainingsmodule .win95-body {
+    padding: 10px 14px;
+    background: #e0e0e0;
+    border-top: 2px solid #808080;
+  }
+
+  #trainingsmodule .training {
+    padding: 6px;
+    border: 1px solid #808080;
+    background: #fff;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+
+  #trainingsmodule .training p {
+    margin: 2px 0;
+  }
+
+  #trainingsmodule .training.grijs {
+    color: #666;
+    background: #f4f4f4;
+  }
+
+  #trainingsmodule .training.zwart {
+    color: #000;
+    font-weight: bold;
+    background: #fff;
+  }
+</style>
 
 <script>
-async function laadSchema() {
-  try {
-    const response = await fetch('./schema.csv');
-    const data = await response.text();
-    const regels = data.trim().split('\n');
+  async function laadSchema() {
+    try {
+      const response = await fetch('./schema.csv');
+      const data = await response.text();
+      const regels = data.trim().split('\n');
 
-    const trainingsData = regels.slice(1).map(r => {
-      const cols = r.split(';');
-      const [dd, mm, yyyy] = cols[0].trim().split('-');
-      return {
-        datum: `${yyyy}-${mm}-${dd}`,
-        displayDatum: cols[0].trim(),
-        training: cols[1].trim()
-      };
-    }).sort((a, b) => a.datum.localeCompare(b.datum));
+      const trainingsData = regels.slice(1).map(r => {
+        const cols = r.split(';');
+        const [dd, mm, yyyy] = cols[0].trim().split('-');
+        return {
+          datum: `${yyyy}-${mm}-${dd}`,
+          displayDatum: cols[0].trim(),
+          training: cols[1].trim()
+        };
+      }).sort((a, b) => a.datum.localeCompare(b.datum));
 
-    const vandaag = new Date().toISOString().split('T')[0];
-    const eerstVolgendeIndex = trainingsData.findIndex(t => t.datum >= vandaag);
-    const huidigIndex = eerstVolgendeIndex === -1 ? trainingsData.length - 1 : eerstVolgendeIndex;
+      const vandaag = new Date().toISOString().split('T')[0];
+      const eerstVolgendeIndex = trainingsData.findIndex(t => t.datum >= vandaag);
+      const huidigIndex = eerstVolgendeIndex === -1 ? trainingsData.length - 1 : eerstVolgendeIndex;
 
-    const vorige = trainingsData[huidigIndex - 1];
-    const huidige = trainingsData[huidigIndex];
-    const volgende = trainingsData[huidigIndex + 1];
+      const vorige = trainingsData[huidigIndex - 1];
+      const huidige = trainingsData[huidigIndex];
+      const volgende = trainingsData[huidigIndex + 1];
 
-    const trainingslijst = document.getElementById('trainingslijst');
-    trainingslijst.innerHTML = '';
+      const trainingslijst = document.getElementById('trainingslijst');
+      trainingslijst.innerHTML = '';
 
-    function maakBlok(item, klasse) {
-      if (!item) return;
-      const div = document.createElement('div');
-      div.className = `training ${klasse}`;
-      div.innerHTML = `<p><strong>${item.displayDatum}</strong></p><p>${item.training}</p>`;
-      trainingslijst.appendChild(div);
+      function maakBlok(item, klasse) {
+        if (!item) return;
+        const div = document.createElement('div');
+        div.className = `training ${klasse}`;
+        div.innerHTML = `<p><strong>${item.displayDatum}</strong></p><p>${item.training}</p>`;
+        trainingslijst.appendChild(div);
+      }
+
+      maakBlok(vorige, 'grijs');
+      maakBlok(huidige, 'zwart');
+      maakBlok(volgende, 'grijs');
+
+    } catch (err) {
+      console.error(err);
+      document.getElementById('trainingslijst').innerHTML = '<p>Kon schema niet laden.</p>';
     }
-
-    maakBlok(vorige, 'grijs');
-    maakBlok(huidige, 'zwart');
-    maakBlok(volgende, 'grijs');
-
-  } catch (err) {
-    console.error(err);
-    document.getElementById('trainingslijst').innerHTML = '<p>Kon schema niet laden.</p>';
   }
-}
 
-laadSchema();
+  laadSchema();
 </script>
-</body>
-</html>
 
 
 
