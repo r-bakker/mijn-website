@@ -68,36 +68,45 @@
       <p id="training-vandaag">Laden...</p>
     </div>
   </div>
-
-  <script>
-    async function laadSchema() {
-      const response = await fetch('schema.csv');
+<script>
+  async function laadSchema() {
+    try {
+      const response = await fetch('./schema.csv');
       const data = await response.text();
 
       const regels = data.trim().split('\n');
-      const headers = regels[0].split(',');
       const trainingsData = regels.slice(1).map(r => {
-        const cols = r.split(',');
+        const cols = r.split(';');
+        const datumParts = cols[0].trim().split('-'); // [DD, MM, YYYY]
+        const isoDatum = `${datumParts[2]}-${datumParts[1]}-${datumParts[0]}`; // YYYY-MM-DD
+
         return {
-          datum: cols[0].trim(),
+          datum: isoDatum,
           training: cols[1].trim()
         };
       });
 
       const vandaag = new Date().toISOString().split('T')[0];
+      console.log("Vandaag:", vandaag);
+      console.log("Trainingsdata:", trainingsData);
 
       const vandaagTraining = trainingsData.find(dag => dag.datum === vandaag);
-
       const trainingEl = document.getElementById('training-vandaag');
+
       if (vandaagTraining) {
         trainingEl.textContent = vandaagTraining.training;
       } else {
         trainingEl.textContent = "Geen training gevonden voor vandaag.";
       }
-    }
 
-    laadSchema();
-  </script>
+    } catch (error) {
+      console.error("Fout bij het laden van schema.csv:", error);
+      document.getElementById('training-vandaag').textContent = "Kon schema niet laden.";
+    }
+  }
+
+  laadSchema();
+</script>
 </body>
 </html>
 
