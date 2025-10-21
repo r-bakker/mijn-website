@@ -50,65 +50,150 @@
 
 <!DOCTYPE html>
 <html lang="nl">
+<!DOCTYPE html>
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Trainingsschema Vandaag</title>
+  <title>Trainingsschema</title>
+  <style>
+    body {
+      background: #008080;
+      font-family: "MS Sans Serif", Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+    }
+
+    .win95-window {
+      background: #c0c0c0;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+      width: min(360px, 90vw);
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .win95-titlebar {
+      background: #000080;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 8px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .win95-btn {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      text-align: center;
+      background: #c0c0c0;
+      color: black;
+      border: 1px solid #808080;
+      margin-left: 4px;
+      line-height: 14px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .win95-body {
+      padding: 10px 14px;
+      background: #e0e0e0;
+      border-top: 2px solid #808080;
+    }
+
+    .training {
+      padding: 6px;
+      border: 1px solid #808080;
+      background: #fff;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .training p {
+      margin: 2px 0;
+    }
+
+    .training.grijs {
+      color: #666;
+      background: #f4f4f4;
+    }
+
+    .training.zwart {
+      color: #000;
+      font-weight: bold;
+      background: #fff;
+    }
+  </style>
 </head>
 <body>
-  <div class="win95-window" style="margin: 20px auto; width: min(400px, 90vw); padding: 20px;">
+  <div class="win95-window">
     <div class="win95-titlebar">
-      <span class="win95-title">📅 Training van vandaag</span>
-      <span class="win95-controls">
-          <span class="win95-btn">_</span>
-          <span class="win95-btn">□</span>
-          <span class="win95-btn">×</span>
-      </span>
+      📅 Trainingsschema
+      <div>
+        <span class="win95-btn">_</span>
+        <span class="win95-btn">□</span>
+        <span class="win95-btn">×</span>
+      </div>
     </div>
-    <div class="win95-body">
-      <p id="training-vandaag">Laden...</p>
+    <div class="win95-body" id="trainingslijst">
+      <p>Laden...</p>
     </div>
   </div>
+
 <script>
-  async function laadSchema() {
-    try {
-      const response = await fetch('./schema.csv');
-      const data = await response.text();
+async function laadSchema() {
+  try {
+    const response = await fetch('./schema.csv');
+    const data = await response.text();
+    const regels = data.trim().split('\n');
 
-      const regels = data.trim().split('\n');
-      const trainingsData = regels.slice(1).map(r => {
-        const cols = r.split(';');
-        const datumParts = cols[0].trim().split('-'); // [DD, MM, YYYY]
-        const isoDatum = `${datumParts[2]}-${datumParts[1]}-${datumParts[0]}`; // YYYY-MM-DD
+    const trainingsData = regels.slice(1).map(r => {
+      const cols = r.split(';');
+      const [dd, mm, yyyy] = cols[0].trim().split('-');
+      return {
+        datum: `${yyyy}-${mm}-${dd}`,
+        displayDatum: cols[0].trim(),
+        training: cols[1].trim()
+      };
+    }).sort((a, b) => a.datum.localeCompare(b.datum));
 
-        return {
-          datum: isoDatum,
-          training: cols[1].trim()
-        };
-      });
+    const vandaag = new Date().toISOString().split('T')[0];
+    const eerstVolgendeIndex = trainingsData.findIndex(t => t.datum >= vandaag);
+    const huidigIndex = eerstVolgendeIndex === -1 ? trainingsData.length - 1 : eerstVolgendeIndex;
 
-      const vandaag = new Date().toISOString().split('T')[0];
-      console.log("Vandaag:", vandaag);
-      console.log("Trainingsdata:", trainingsData);
+    const vorige = trainingsData[huidigIndex - 1];
+    const huidige = trainingsData[huidigIndex];
+    const volgende = trainingsData[huidigIndex + 1];
 
-      const vandaagTraining = trainingsData.find(dag => dag.datum === vandaag);
-      const trainingEl = document.getElementById('training-vandaag');
+    const trainingslijst = document.getElementById('trainingslijst');
+    trainingslijst.innerHTML = '';
 
-      if (vandaagTraining) {
-        trainingEl.textContent = vandaagTraining.training;
-      } else {
-        trainingEl.textContent = "Geen training gevonden voor vandaag.";
-      }
-
-    } catch (error) {
-      console.error("Fout bij het laden van schema.csv:", error);
-      document.getElementById('training-vandaag').textContent = "Kon schema niet laden.";
+    function maakBlok(item, klasse) {
+      if (!item) return;
+      const div = document.createElement('div');
+      div.className = `training ${klasse}`;
+      div.innerHTML = `<p><strong>${item.displayDatum}</strong></p><p>${item.training}</p>`;
+      trainingslijst.appendChild(div);
     }
-  }
 
-  laadSchema();
+    maakBlok(vorige, 'grijs');
+    maakBlok(huidige, 'zwart');
+    maakBlok(volgende, 'grijs');
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById('trainingslijst').innerHTML = '<p>Kon schema niet laden.</p>';
+  }
+}
+
+laadSchema();
 </script>
 </body>
 </html>
+
 
 
     
