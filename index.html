@@ -48,7 +48,61 @@
         </a>
     </nav>
 
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Trainingsschema Vandaag</title>
+</head>
+<body>
+  <div class="win95-window" style="margin: 20px auto; width: min(400px, 90vw); padding: 20px;">
+    <div class="win95-titlebar">
+      <span class="win95-title">📅 Training van vandaag</span>
+      <span class="win95-controls">
+          <span class="win95-btn">_</span>
+          <span class="win95-btn">□</span>
+          <span class="win95-btn">×</span>
+      </span>
+    </div>
+    <div class="win95-body">
+      <p id="training-vandaag">Laden...</p>
+    </div>
+  </div>
 
+  <script>
+    async function laadSchema() {
+      const response = await fetch('schema.csv');
+      const data = await response.text();
+
+      const regels = data.trim().split('\n');
+      const headers = regels[0].split(',');
+      const trainingsData = regels.slice(1).map(r => {
+        const cols = r.split(',');
+        return {
+          datum: cols[0].trim(),
+          training: cols[1].trim()
+        };
+      });
+
+      const vandaag = new Date().toISOString().split('T')[0];
+
+      const vandaagTraining = trainingsData.find(dag => dag.datum === vandaag);
+
+      const trainingEl = document.getElementById('training-vandaag');
+      if (vandaagTraining) {
+        trainingEl.textContent = vandaagTraining.training;
+      } else {
+        trainingEl.textContent = "Geen training gevonden voor vandaag.";
+      }
+    }
+
+    laadSchema();
+  </script>
+</body>
+</html>
+
+
+    
 <header class="win95-window" style="margin: 20px auto; width: min(400px, 90vw);">
     <div class="win95-titlebar">
         <span class="win95-title">▶ De marathon van Lissabon 2024</span>
