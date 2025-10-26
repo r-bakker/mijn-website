@@ -22,6 +22,16 @@
             margin: 20px auto;
             width: min(400px, 90vw);
         }
+
+        /* 👇 Nieuwe stijl voor de afbeelding in de blogpost */
+        .blog-foto {
+            display: block;
+            margin: 20px auto;
+            width: 60%;
+            max-width: 400px;
+            height: auto;
+            border: 2px solid #808080;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +70,10 @@
                 Op het moment van schrijven ben ik lekker aan het luisteren naar Sam Fender, Olivia Dean (vooral ook hun samenwerking in rein me in) en Laufey.
                 Toch wel echt een hele fijne rustige maandagavond op de bank :)
             </p>
-            <img src="../posts/post1/img1.JPG" alt="Voorbeeld" style="max-width:100%; border: 2px solid #808080;">
+
+            <!-- 👇 De afbeelding gebruikt nu de nieuwe klasse -->
+            <img src="../posts/post1/img1.JPG" alt="Voorbeeld" class="blog-foto">
+
         </div>
     </main>
 
