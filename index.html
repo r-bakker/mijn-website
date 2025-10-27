@@ -7,18 +7,17 @@
 
   <!-- Algemene stijlen -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- Win95 navigatiebalk -->
   <link rel="stylesheet" href="css/navigatie.css">
 
   <!-- 8-bit font importeren -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
-    /* Algemene stijl */
     body {
       margin: 0;
       padding: 0;
       background: #f4f4f4;
+      font-family: "MS Sans Serif", Arial, sans-serif;
     }
 
     .site-title {
@@ -30,7 +29,6 @@
       margin: 20px auto;
     }
 
-    /* Hoofdgrid */
     main.grid {
       max-width: 900px;
       margin: 0 auto;
@@ -40,31 +38,18 @@
       padding: 20px;
     }
 
-    /* Blogpostkaart */
-    .card {
-      display: block;
-      width: min(400px, 90vw);
-      margin: 0 auto;
-    }
-
-    /* Trainingsmodule */
-    #trainingsmodule {
-      display: flex;
-      justify-content: center;
-      margin: 0 auto 40px; /* geen dubbele marge meer bovenaan */
-      font-family: "MS Sans Serif", Arial, sans-serif;
-    }
-
-    #trainingsmodule .win95-window {
+    /* Algemene Win95-window styling */
+    .win95-window {
       background: #c0c0c0;
       border: 2px solid #fff;
       border-right-color: #808080;
       border-bottom-color: #808080;
       width: min(400px, 90vw);
       box-shadow: 2px 2px 0 #000;
+      margin: 0 auto 40px;
     }
 
-    #trainingsmodule .win95-titlebar {
+    .win95-titlebar {
       background: #000080;
       color: white;
       display: flex;
@@ -73,9 +58,10 @@
       padding: 4px 8px;
       font-weight: bold;
       font-size: 14px;
+      font-family: "MS Sans Serif", Arial, sans-serif;
     }
 
-    #trainingsmodule .win95-btn {
+    .win95-btn {
       display: inline-block;
       width: 16px;
       height: 16px;
@@ -89,62 +75,31 @@
       cursor: pointer;
     }
 
-    #trainingsmodule .win95-body {
+    .win95-body {
       padding: 10px 14px;
-      background: #e0e0e0;
+      background: #c0c0c0;
       border-top: 2px solid #808080;
     }
 
-    #trainingsmodule .training {
-      padding: 6px;
-      border: 1px solid #808080;
-      background: #fff;
-      margin-bottom: 6px;
-      font-size: 14px;
+    p {
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.6;
     }
 
-    #trainingsmodule .training p {
-      margin: 2px 0;
-    }
-
-    #trainingsmodule .training.grijs {
-      color: #666;
-      background: #f4f4f4;
-    }
-
-    #trainingsmodule .training.zwart {
-      color: #000;
-      font-weight: bold;
-      background: #fff;
-    }
-
-    /* Video-module */
-    header.win95-window {
-      margin: 0 auto 40px;
-      width: min(400px, 90vw);
-    }
-
-    /* Fix voor mobiel */
     @media (max-width: 500px) {
       .grid {
         grid-template-columns: 1fr !important;
         justify-items: center;
       }
     }
-    p {
-  text-align: justify;
-  text-justify: inter-word;
-  line-height: 1.6;
-}
   </style>
 </head>
 
 <body>
 
-  <!-- Titel -->
   <h1 class="site-title">ROB BAKKER</h1>
 
-  <!-- Navigatie -->
   <nav class="win95-nav">
     <a href="index.html" class="win95-nav-link">
       <img src="icons/archief.png" alt="Folder icon" class="icon"> Home
@@ -157,35 +112,27 @@
     </a>
   </nav>
 
-  <!-- Blogpostsectie -->
+  <!-- Eerste blogpost module -->
   <main class="grid">
-
-<!-- Blogpostsectie -->
-<main class="grid">
-
-  <!-- Laatste blogpost module als Win95-stijl, klikbaar -->
-  <a href="posts/post1.html" class="blogpost-module" style="display: flex; justify-content: center; text-decoration: none; font-family: 'MS Sans Serif', Arial, sans-serif;">
-    <div class="win95-window" style="width: min(400px, 90vw);">
-      <div class="win95-titlebar">
-        📝 De laatste blogpost
-        <span class="win95-controls">
-          <span class="win95-btn">_</span>
-          <span class="win95-btn">□</span>
-          <span class="win95-btn">×</span>
-        </span>
+    <a href="posts/post1.html" class="blogpost-module" style="display: flex; justify-content: center; text-decoration: none;">
+      <div class="win95-window">
+        <div class="win95-titlebar">
+          📝 De laatste blogpost
+          <div>
+            <span class="win95-btn">_</span>
+            <span class="win95-btn">□</span>
+            <span class="win95-btn">×</span>
+          </div>
+        </div>
+        <div class="win95-body">
+          <p>
+            Welkom! Ik ben Rob Bakker – chemicus van oorsprong en tegenwoordig werkzaam bij een omgevingsdienst, waar ik me bezighoud met alles wat te maken heeft met milieu, veiligheid en duurzaamheid.
+            <br><br>Naast mijn werk hou ik van hardlopen (en sinds kort triatlon) en ben ik graag bezig met nieuwe ideeën rond wetenschap, techniek en de leefomgeving.
+            <br><br>Op deze website deel ik mijn interesses, projecten en gedachten — van chemie tot kilometers — en binnenkort ook YouTube-video’s over onderwerpen die mij inspireren.
+          </p>
+        </div>
       </div>
-      <div class="win95-body" style="background: #e0e0e0; border-top: 2px solid #808080;">
-        <p>
-          Welkom! Ik ben Rob Bakker – chemicus van oorsprong en tegenwoordig werkzaam bij een omgevingsdienst, waar ik me bezighoud met alles wat te maken heeft met milieu, veiligheid en duurzaamheid.
-          <br><br>Naast mijn werk hou ik van hardlopen (en sinds kort triatlon) en ben ik graag bezig met nieuwe ideeën rond wetenschap, techniek en de leefomgeving.
-          <br><br>Op deze website deel ik mijn interesses, projecten en gedachten — van chemie tot kilometers — en binnenkort ook YouTube-video’s over onderwerpen die mij inspireren.
-        </p>
-      </div>
-    </div>
-  </a>
-
-</main>
-
+    </a>
   </main>
 
 </body>
