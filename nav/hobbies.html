@@ -6,9 +6,9 @@
   <title>Rob Bakker - Hobbies</title>
 
   <!-- Algemene stijlen -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <!-- Win95 navigatiebalk -->
-  <link rel="stylesheet" href="css/navigatie.css">
+  <link rel="stylesheet" href="../css/navigatie.css">
 
   <!-- 8-bit font importeren -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -141,14 +141,14 @@
 
   <!-- Navigatie -->
   <nav class="win95-nav">
-    <a href="index.html" class="win95-nav-link">
-      <img src="icons/archief.png" alt="Folder icon" class="icon"> Home
+    <a href="../index.html" class="win95-nav-link">
+      <img src="../icons/archief.png" alt="Folder icon" class="icon"> Home
     </a>
-    <a href="nav/hobbies.html" class="win95-nav-link">
-      <img src="icons/archief.png" alt="Folder icon" class="icon"> Hobbies
+    <a href="../nav/hobbies.html" class="win95-nav-link">
+      <img src="../icons/archief.png" alt="Folder icon" class="icon"> Hobbies
     </a>
-    <a href="nav/blogarchief.html" class="win95-nav-link">
-      <img src="icons/archief.png" alt="Folder icon" class="icon"> Blog-archief
+    <a href="../nav/blogarchief.html" class="win95-nav-link">
+      <img src="../icons/archief.png" alt="Folder icon" class="icon"> Blog-archief
     </a>
   </nav>
 
@@ -196,7 +196,7 @@
   <script>
     async function laadSchema() {
       try {
-        const response = await fetch('./schema.csv');
+        const response = await fetch('../schema.csv');
         const data = await response.text();
         const regels = data.trim().split('\n');
 
