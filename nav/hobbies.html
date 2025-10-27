@@ -1,55 +1,246 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rob's Blog-archief</title>
-    
-    <!-- Algemene stijlen -->
-    <link rel="stylesheet" href="../css/style.css">
-    <!-- Win95 navigatiebalk -->
-    <link rel="stylesheet" href="../css/navigatie.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rob Bakker - Hobbies</title>
 
-    <!-- 8-bit font importeren -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- Algemene stijlen -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Win95 navigatiebalk -->
+  <link rel="stylesheet" href="css/navigatie.css">
 
-    <style>
-        .site-title {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 32px;
-            color: darkblue;
-            text-align: center;
-        }
+  <!-- 8-bit font importeren -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-        /* Fix voor mobiel: blogposts gecentreerd */
-        @media (max-width: 500px) {
-            .grid {
-                grid-template-columns: 1fr !important;
-                justify-items: center;
-            }
-        }
-    </style>
+  <style>
+    /* Algemene stijl */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    .site-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 32px;
+      color: darkblue;
+      text-align: center;
+      width: min(400px, 90vw);
+      margin: 20px auto;
+    }
+
+    /* Hoofdgrid */
+    main.grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      justify-content: center;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    /* Blogpostkaart */
+    .card {
+      display: block;
+      width: min(400px, 90vw);
+      margin: 0 auto;
+    }
+
+    /* Trainingsmodule */
+    #trainingsmodule {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 40px; /* geen dubbele marge meer bovenaan */
+      font-family: "MS Sans Serif", Arial, sans-serif;
+    }
+
+    #trainingsmodule .win95-window {
+      background: #c0c0c0;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+      width: min(400px, 90vw);
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    #trainingsmodule .win95-titlebar {
+      background: #000080;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 8px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    #trainingsmodule .win95-btn {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      text-align: center;
+      background: #c0c0c0;
+      color: black;
+      border: 1px solid #808080;
+      margin-left: 4px;
+      line-height: 14px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    #trainingsmodule .win95-body {
+      padding: 10px 14px;
+      background: #e0e0e0;
+      border-top: 2px solid #808080;
+    }
+
+    #trainingsmodule .training {
+      padding: 6px;
+      border: 1px solid #808080;
+      background: #fff;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    #trainingsmodule .training p {
+      margin: 2px 0;
+    }
+
+    #trainingsmodule .training.grijs {
+      color: #666;
+      background: #f4f4f4;
+    }
+
+    #trainingsmodule .training.zwart {
+      color: #000;
+      font-weight: bold;
+      background: #fff;
+    }
+
+    /* Video-module */
+    header.win95-window {
+      margin: 0 auto 40px;
+      width: min(400px, 90vw);
+    }
+
+    /* Fix voor mobiel */
+    @media (max-width: 500px) {
+      .grid {
+        grid-template-columns: 1fr !important;
+        justify-items: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- 8-bit titel bovenaan -->
-    <h1 class="site-title" style="width: min(400px, 90vw); margin: 20px auto;">ROB BAKKER</h1>
+  <!-- Titel -->
+  <h1 class="site-title">ROB BAKKER</h1>
 
-    <!-- Grijze Win95 navigatiebalk -->
-    <nav class="win95-nav">
-        <a href="../index.html" class="win95-nav-link">
-            <img src="../icons/archief.png" alt="Folder icon" class="icon"> Home
-        </a>
-        <a href="hobbies.html" class="win95-nav-link">
-            <img src="../icons/archief.png" alt="Folder icon" class="icon"> Hobbies
-        </a>
-        <a href="blogarchief.html" class="win95-nav-link">
-            <img src="../icons/archief.png" alt="Folder icon" class="icon"> Blog-archief
-        </a>
-    </nav>
+  <!-- Navigatie -->
+  <nav class="win95-nav">
+    <a href="index.html" class="win95-nav-link">
+      <img src="icons/archief.png" alt="Folder icon" class="icon"> Home
+    </a>
+    <a href="nav/hobbies.html" class="win95-nav-link">
+      <img src="icons/archief.png" alt="Folder icon" class="icon"> Hobbies
+    </a>
+    <a href="nav/blogarchief.html" class="win95-nav-link">
+      <img src="icons/archief.png" alt="Folder icon" class="icon"> Blog-archief
+    </a>
+  </nav>
 
-    <!-- Site content -->
-    <p>Hier wordt nog aan gewerkt!</p>
+  <!-- Trainingsmodule -->
+  <div id="trainingsmodule">
+    <div class="win95-window">
+      <div class="win95-titlebar">
+        🏃🏻‍♂️ De weg naar Ironman 70.3 Duisburg
+        <div>
+          <span class="win95-btn">_</span>
+          <span class="win95-btn">□</span>
+          <span class="win95-btn">×</span>
+        </div>
+      </div>
+      <div class="win95-body" id="trainingslijst">
+        <p>Laden...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video-module -->
+  <header class="win95-window">
+    <div class="win95-titlebar">
+      <span class="win95-title">📽️ De marathon van Lissabon 2024</span>
+      <span class="win95-controls">
+        <span class="win95-btn">_</span>
+        <span class="win95-btn">□</span>
+        <span class="win95-btn">×</span>
+      </span>
+    </div>
+    <div class="win95-body">
+      <div style="position: relative; width: 100%; aspect-ratio: 1/1; margin: 0 auto;">
+        <iframe 
+          src="https://www.youtube.com/embed/dufnR16007A"
+          title="De marathon van Lissabon 2024"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    async function laadSchema() {
+      try {
+        const response = await fetch('./schema.csv');
+        const data = await response.text();
+        const regels = data.trim().split('\n');
+
+        const trainingsData = regels.slice(1).map(r => {
+          const cols = r.split(';');
+          const [dd, mm, yyyy] = cols[0].trim().split('-');
+          return {
+            datum: `${yyyy}-${mm}-${dd}`,
+            displayDatum: cols[0].trim(),
+            training: cols[1].trim()
+          };
+        }).sort((a, b) => a.datum.localeCompare(b.datum));
+
+        const vandaag = new Date().toISOString().split('T')[0];
+        const eerstVolgendeIndex = trainingsData.findIndex(t => t.datum >= vandaag);
+        const huidigIndex = eerstVolgendeIndex === -1 ? trainingsData.length - 1 : eerstVolgendeIndex;
+
+        const vorige = trainingsData[huidigIndex - 1];
+        const huidige = trainingsData[huidigIndex];
+        const volgende = trainingsData[huidigIndex + 1];
+
+        const trainingslijst = document.getElementById('trainingslijst');
+        trainingslijst.innerHTML = '';
+
+        function maakBlok(item, klasse) {
+          if (!item) return;
+          const div = document.createElement('div');
+          div.className = `training ${klasse}`;
+          div.innerHTML = `<p><strong>${item.displayDatum}</strong></p><p>${item.training}</p>`;
+          trainingslijst.appendChild(div);
+        }
+
+        maakBlok(vorige, 'grijs');
+        maakBlok(huidige, 'zwart');
+        maakBlok(volgende, 'grijs');
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('trainingslijst').innerHTML = '<p>Kon schema niet laden.</p>';
+      }
+    }
+
+    laadSchema();
+  </script>
 
 </body>
 </html>
