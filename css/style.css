@@ -80,7 +80,7 @@ a { text-decoration: none; color: inherit; }
   color: #111;
 }
 
-/* Links/hover: “pressed” & focus-outline */
+/* Focus outline */
 .win95-window:focus-visible{
   outline: 1px dotted var(--win95-black);
   outline-offset: 2px;
@@ -90,16 +90,17 @@ a { text-decoration: none; color: inherit; }
   filter: brightness(1.02);
 }
 
-/* .win95-window:active {
-  border-left: 2px solid var(--win95-shadow);
-  border-top: 2px solid var(--win95-shadow);
-  border-right: 2px solid var(--win95-light);
-  border-bottom: 2px solid var(--win95-light);
+/* Verwijder indruk-effect volledig */
+.win95-window:active {
+  /* geen verandering bij indrukken */
+  border-left: 2px solid var(--win95-light);
+  border-top: 2px solid var(--win95-light);
+  border-right: 2px solid var(--win95-shadow);
+  border-bottom: 2px solid var(--win95-shadow);
   box-shadow:
-    inset -1px -1px 0 var(--win95-light),
-    inset 1px 1px 0 var(--win95-dark);
-} */
-
+    inset -1px -1px 0 var(--win95-dark),
+    inset 1px 1px 0 var(--win95-light);
+}
 
 /* Optioneel: kleine tag/metadata chip in Win95-stijl */
 .win95-chip{
