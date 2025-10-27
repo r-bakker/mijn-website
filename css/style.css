@@ -90,8 +90,7 @@ a { text-decoration: none; color: inherit; }
   filter: brightness(1.02);
 }
 
-.win95-window:active{
-  /* wissel randen om voor ingedrukt effect */
+/* .win95-window:active {
   border-left: 2px solid var(--win95-shadow);
   border-top: 2px solid var(--win95-shadow);
   border-right: 2px solid var(--win95-light);
@@ -99,7 +98,8 @@ a { text-decoration: none; color: inherit; }
   box-shadow:
     inset -1px -1px 0 var(--win95-light),
     inset 1px 1px 0 var(--win95-dark);
-}
+} */
+
 
 /* Optioneel: kleine tag/metadata chip in Win95-stijl */
 .win95-chip{
