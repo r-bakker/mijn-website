@@ -5,16 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BLOGPOST#1 - Rob Bakker</title>
 
-  <!-- Algemene stijlen -->
   <link rel="stylesheet" href="../css/style.css">
-  <!-- Win95 navigatiebalk -->
   <link rel="stylesheet" href="../css/navigatie.css">
-
-  <!-- 8-bit font importeren -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
-    /* Algemene achtergrond en opmaak */
     body {
       margin: 0;
       padding: 0;
@@ -30,17 +25,16 @@
       margin: 20px auto;
     }
 
-    /* Hoofdcontent in grid */
     main.grid {
       max-width: 900px;
       margin: 0 auto;
       display: grid;
       justify-content: center;
+      justify-items: center;  /* centreert het item */
       gap: 40px;
       padding: 20px;
     }
 
-    /* Win95 venster – smal, zoals op index.html */
     .win95-window {
       background: #c0c0c0;
       border: 2px solid #fff;
@@ -49,6 +43,7 @@
       width: min(400px, 90vw);
       box-shadow: 2px 2px 0 #000;
       font-family: "MS Sans Serif", Arial, sans-serif;
+      cursor: default;       /* geen klik-effect */
     }
 
     .win95-titlebar {
@@ -73,7 +68,7 @@
       margin-left: 4px;
       line-height: 14px;
       font-size: 12px;
-      cursor: default; /* geen klik-effect */
+      cursor: default;
     }
 
     .win95-body {
@@ -82,7 +77,6 @@
       border-top: 2px solid #808080;
     }
 
-    /* Tekst in blog */
     p {
       text-align: justify;
       text-justify: inter-word;
@@ -90,7 +84,6 @@
       margin-bottom: 16px;
     }
 
-    /* Afbeelding in blog */
     .blog-foto {
       display: block;
       margin: 20px auto;
@@ -100,7 +93,6 @@
       border: 2px solid #808080;
     }
 
-    /* Fix voor mobiel */
     @media (max-width: 500px) {
       .grid {
         grid-template-columns: 1fr !important;
@@ -112,10 +104,8 @@
 
 <body>
 
-  <!-- 8-bit titel -->
   <h1 class="site-title">ROB BAKKER</h1>
 
-  <!-- Navigatie -->
   <nav class="win95-nav">
     <a href="../index.html" class="win95-nav-link">
       <img src="../icons/archief.png" alt="Folder icon" class="icon"> Home
@@ -128,9 +118,7 @@
     </a>
   </nav>
 
-  <!-- Blogpost content -->
   <main class="grid">
-
     <article class="win95-window">
       <div class="win95-titlebar">
         <span class="win95-title">📝 BLOGPOST#1</span>
@@ -155,11 +143,9 @@
           in <em>Rein Me In</em>) en Laufey. Toch wel echt een hele fijne, rustige maandagavond op de bank. :)
         </p>
 
-        <!-- Afbeelding -->
         <img src="../posts/post1/img1.JPG" alt="Afbeelding bij blogpost" class="blog-foto">
       </div>
     </article>
-
   </main>
 
 </body>
